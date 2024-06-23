@@ -1,0 +1,209 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+	/* color */
+	--color-primary: #4462ff; /* 메인 컬러 */
+	--color-primary-light: #638dff; /* 메인 컬러 밝음 */
+	--color-primary-dark: #0086d1; /* 메인 컬러 어두움 */
+	--color-primary-contrast: #fff; /* 메인 컬러 반대 */
+	--color-secondary: #66c8ff; /* 서브 컬러 */
+	--color-secondary-dark: #0095e8; /* 서브 컬러 dark */
+	--color-secondary-contrast: #fff; /* 서브 컬러 반대 */
+
+	--color-font-black: #000; /* 기본 폰트색 */
+	--color-font-darker: #2d2d2d;
+	--color-font-dark: #555;
+	--color-font-mid: #777777;
+	--color-font-light: #8b8b8b;
+	--color-font-lighter: #c8c8c8;
+	--color-font-white: #fff;
+
+	--color-border-dark: #b7b7b7;
+	--color-border-mid: #c9c9c9;
+	--color-border-light: #ddd;
+
+	--color-disabled: #888; /* 비활성화 색 */
+	--color-active: #28a745; /* 활성화 색 */
+	--color-danger: #ff485d; /* 경고 색 */
+	--color-alert: #ffa500; /* 알림 색 */
+
+	/* font */
+	--font-size-xxxx-large: 4rem;
+	--font-size-xxx-large: 3.2rem;
+	--font-size-xx-large: 2.4rem;
+	--font-size-x-large: 2rem;
+	--font-size-large: 1.8rem;
+	--font-size-mid: 1.6rem;
+	--font-size-small: 1.4rem;
+	--font-size-x-small: 1.3rem;
+	--font-size-xx-small: 1.2rem;
+
+	/* space */
+	--space-xx-small: 0.4rem;
+	--space-x-small: 0.8rem;
+	--space-small: 1.2rem;
+	--space-mid: 1.6rem;
+	--space-large: 2rem;
+	--space-x-large: 3rem;
+	--space-xx-large: 4rem;
+
+	/* border-radius */
+	--border-radius-x-small: 0.4rem;
+	--border-radius-small: 0.8rem;
+	--border-radius-mid: 1.2rem;
+	--border-radius-large: 1.6rem;
+	--border-radius-x-large: 2rem;
+	--border-radius-full: 1000rem;
+
+	/* transition 속도 */
+	--transition-fast: 0.12s;
+	--transition-default: 0.2s;
+	--transition-slow: 0.3s;
+	--transition-slower: 0.5s;
+
+	/* 기타 */
+	--box-shadow: 0.2rem 0.2rem 1rem rgba(255, 255, 255, 0.1);
+
+	/* 계산 목적 변수 */
+	--max-width: 1200px; /* 컨텐츠 최대 너비 */
+}
+
+/* ---------- 기본 set START ---------- */
+/* 드래그시 색깔 */
+/* ::selection{
+    background-color: lightblue;
+    color:var(--font-color-default);
+} */
+/* 크롬에서 자동완성 배경 하얀색으로 */
+/* input:-webkit-autofill,
+textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 100rem #fff inset ;
+} */
+body {
+	font-family: 'Pretendard';
+	letter-spacing: -0.01em;
+}
+:disabled {
+	cursor: default !important;
+}
+input,
+progress {
+	accent-color: var(--color-primary);
+}
+input::-ms-clear,
+input::-ms-reveal {
+	display: none;
+	width: 0;
+	height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+	display: none;
+}
+/* ----------- 기본 set END ----------- */
+
+/* ----------- 레이아웃 START ----------- */
+.c_main_container {
+	position: relative;
+	width: 100%;
+	padding-top: var(--header-height);
+	@media screen and (max-width: 1024px) {
+		&:has(> .c_page_banner) {
+			padding-top: 0;
+		}
+	}
+}
+.c_inner {
+	width: 100%;
+	padding: 0 2rem;
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+.c_section {
+	position: relative;
+	width: 100%;
+	padding: 10rem 0;
+	& + .c_section {
+		margin-top: 5rem;
+	}
+	&:last-of-type {
+		padding-bottom: 25rem;
+	}
+	@media screen and (max-width: 768px) {
+		padding: var(--space-xxxx-large) 0;
+		&:last-of-type {
+			padding-bottom: calc(var(--space-xxxx-large) * 2);
+		}
+	}
+}
+/* ----------- 레이아웃 END ----------- */
+
+/* ----------- 스타일 START ----------- */
+/* ----------- 스타일 END ----------- */
+
+/* ----------- 기능성 스타일 START ----------- */
+.c_desktop {
+	display: revert;
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}
+.c_mobile {
+	display: none;
+	@media screen and (max-width: 768px) {
+		display: revert;
+	}
+}
+/* ----------- 기능성 스타일 END ----------- */
+
+/* ----------- transition 스타일 START ----------- */
+.c_fade-enter-active,
+.c_fade-leave-active {
+	transition: opacity 0.15s ease-out;
+}
+.c_fade-enter-from,
+.c_fade-leave-to {
+	opacity: 0;
+}
+/* ----------- transition 스타일 END ----------- */
+
+/* ---------- font-size START  ---------- */
+/* 모바일-s */
+@media screen and (max-width: 360px) {
+	html {
+		font-size: 9px;
+	}
+}
+/* 모바일-m */
+/* @media screen and (max-width: 480px) {
+} */
+/* 모바일-l */
+/* @media screen and (max-width: 600px) {
+} */
+/* 모바일-xl & 태블릿-s */
+/* @media screen and (max-width: 768px) {
+} */
+/* 태블릿-m */
+/* @media screen and (max-width: 900px) {
+} */
+/* 태블릿-l & PC-s */
+/* @media screen and (max-width: 1024px) {
+} */
+/* PC-m */
+/* @media screen and (max-width: 1200px) {
+} */
+/* PC-l */
+/* @media screen and (max-width: 1440px) {
+} */
+/* PC-xl */
+/* @media screen and (max-width: 1600px) {
+} */
+/* PC-xxl (min-width임 주의) */
+/* @media screen and (min-width: 1601px) {
+	html {
+		font-size: 11px;
+	}
+} */
+/* ---------- font-size END  ---------- */
